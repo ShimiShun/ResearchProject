@@ -8,7 +8,7 @@ public class ob_move : MonoBehaviour {
 	public GameObject obj;
 	Vector3 xm_pos, ym_pos, zm_pos;
 
-	public float INIT_DEGREE = 80f;
+	public float INIT_DEGREE = 90f;
 	public float INIT_SPEED = 150f;
 
 	// Use this for initialization
