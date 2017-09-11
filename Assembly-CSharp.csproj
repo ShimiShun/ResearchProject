@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\3D-MOT\script\MOT_random.cs" />
      <Compile Include="Assets\3D-MOT\script\MovingObject.cs" />
-     <Compile Include="Assets\3D-MOT\script\ob_move.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
