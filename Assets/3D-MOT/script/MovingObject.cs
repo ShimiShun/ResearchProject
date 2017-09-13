@@ -9,25 +9,20 @@ public class MovingObject : MonoBehaviour {
 	public float INIT_SPEED = 50f;
 	[SerializeField]
 	private int _maxRotateRange = 180;
+	[SerializeField]
+	private GameObject _parentBall;
 
+	ListCollisionCollor colliderParent;
 
 	// Use this for initialization
 	void Start () {
+		
+		colliderParent = _parentBall.GetComponent<ListCollisionCollor>();
 		shotBall();
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
 
-
-
-	}
-
-
-	void OnCollisionEnter(Collision collision) {
-		//this.transform.transform = GetComponent<Rigidbody> ().velocity.normalized * 10;
-	}
 
 	void shotBall() {
 		Vector2 vel = Vector2.zero;
@@ -38,9 +33,16 @@ public class MovingObject : MonoBehaviour {
 	}
 
 
-//	void OnCollisionEnter(Collision collision){
-////		Destroy(collision.gameObject);
-////		Destroy(this.gameObject);
-//
-//	}
+	void OnCollisionEnter(Collision collision){
+		if (collision.gameObject.tag != "Wall") {
+
+			colliderParent._colArray.Add (collision.gameObject.tag);
+
+			Destroy (this.gameObject);
+
+			Debug.Log(collision.gameObject.tag);
+		}
+
+
+	}
 }
