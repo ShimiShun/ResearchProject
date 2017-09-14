@@ -9,19 +9,29 @@ public class MovingObject : MonoBehaviour {
 	public float INIT_SPEED = 50f;
 	[SerializeField]
 	private int _maxRotateRange = 180;
-	[SerializeField]
+
 	private GameObject _parentBall;
+
+	int a=0;
 
 	ListCollisionCollor colliderParent;
 
 	// Use this for initialization
 	void Start () {
-		
+		_parentBall = GameObject.Find ("FirstMoveBall");
 		colliderParent = _parentBall.GetComponent<ListCollisionCollor>();
-		shotBall();
+		//shotBall();
 
 	}
+
 	
+	void Update(){
+		if (a == 0) {
+			shotBall ();
+			a++;
+		}
+	}
+
 
 
 	void shotBall() {
@@ -37,6 +47,7 @@ public class MovingObject : MonoBehaviour {
 		if (collision.gameObject.tag != "Wall") {
 
 			colliderParent._colArray.Add (collision.gameObject.tag);
+			colliderParent._colPosition.Add (this.transform.position);
 
 			Destroy (this.gameObject);
 
