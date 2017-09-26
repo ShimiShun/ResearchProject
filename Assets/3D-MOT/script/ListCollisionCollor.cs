@@ -9,18 +9,20 @@ public class ListCollisionCollor : MonoBehaviour {
 	private string _mixCol;
 	[SerializeField]
 	private List<GameObject> ColorBall;
+	[SerializeField]
+	private int _ballCount = 5;
+	[SerializeField]
+	private int _ballMax = 5;
 
 
 	// Use this for initialization
 	void Start () {
-
+		_ballCount = this.transform.childCount;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-
 
 
 		if (_colArray.Contains ("Blue") && _colArray.Contains ("Red")) {
@@ -43,8 +45,16 @@ public class ListCollisionCollor : MonoBehaviour {
 			Debug.Log ("Create SkyBlue");
 			_colArray.Clear();
 
-		} 
+		}
 
+
+		if (_ballCount <= _ballMax - 1) {
+			for (int i = _ballCount; i < _ballMax; i++) {
+//				GameObject obj = Instantiate (ColorBall[0], Vector3(5f,5f,-25f), Quaternion.identity);
+//				obj.transform.parent = this.transform;
+
+			}
+		}
 	}
 		
 }

@@ -45,13 +45,18 @@ public class MovingObject : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		if (collision.gameObject.tag != "Wall") {
+			var random = Random.Range (0.0f, 5.0f);
+			Debug.Log (random);
 
-			colliderParent._colArray.Add (collision.gameObject.tag);
-			colliderParent._colPosition.Add (this.transform.position);
+			if (random >= 2 && random < 3.5) {
 
-			Destroy (this.gameObject);
+				colliderParent._colArray.Add (collision.gameObject.tag);
+				colliderParent._colPosition.Add (this.transform.position);
 
-			Debug.Log(collision.gameObject.tag);
+				Destroy (this.gameObject);
+
+				Debug.Log (collision.gameObject.tag);
+			}
 		}
 
 
