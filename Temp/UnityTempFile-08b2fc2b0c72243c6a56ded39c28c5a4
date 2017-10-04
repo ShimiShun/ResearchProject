@@ -86,6 +86,7 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
+'Assets/3D-MOT/script/CreatedObject.cs'
 'Assets/3D-MOT/script/ListCollisionCollor.cs'
 'Assets/3D-MOT/script/MOT_random.cs'
 'Assets/3D-MOT/script/MovingObject.cs'

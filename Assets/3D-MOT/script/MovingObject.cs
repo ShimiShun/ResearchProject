@@ -20,16 +20,8 @@ public class MovingObject : MonoBehaviour {
 	void Start () {
 		_parentBall = GameObject.Find ("FirstMoveBall");
 		colliderParent = _parentBall.GetComponent<ListCollisionCollor>();
-		//shotBall();
+		shotBall();
 
-	}
-
-	
-	void Update(){
-		if (a == 0) {
-			shotBall ();
-			a++;
-		}
 	}
 
 
@@ -45,19 +37,16 @@ public class MovingObject : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		if (collision.gameObject.tag != "Wall") {
-			var random = Random.Range (0.0f, 5.0f);
-			Debug.Log (random);
-
-			if (random >= 2 && random < 3.5) {
+			
 
 				colliderParent._colArray.Add (collision.gameObject.tag);
 				colliderParent._colPosition.Add (this.transform.position);
 
-				Destroy (this.gameObject);
+				//Destroy (this.gameObject);
 
 				Debug.Log (collision.gameObject.tag);
 			}
-		}
+
 
 
 	}
