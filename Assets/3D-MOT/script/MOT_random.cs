@@ -11,7 +11,7 @@ public class MOT_random : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		wall.transform.localScale = new Vector3 (60, 40, 10);
+		//wall.transform.localScale = new Vector3 (60, 40, 10);
 		//maincamera.transform.localPosition=new Vector2 (Screen.width / 2, Screen.height / 2);
 	}
 	
