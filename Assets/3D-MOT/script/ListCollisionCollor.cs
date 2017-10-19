@@ -28,17 +28,17 @@ public class ListCollisionCollor : MonoBehaviour {
 		if (_colArray.Contains ("Blue") && _colArray.Contains ("Red")) {
 			
 			Vector3 pos = (_colPosition [0] + _colPosition [1]) / 2;
-			Debug.Log (_colArray[0]);
-			Debug.Log ("Create Purple");
+			//Debug.Log (_colArray[0]);
+			//Debug.Log ("Create Purple");
 			_colArray.Clear();
-			Debug.Log (pos);
+			//Debug.Log (pos);
 			Instantiate (ColorBall[0], pos, Quaternion.identity);
 			_colPosition.Clear ();
 
 		} else if (_colArray.Contains ("Red") && _colArray.Contains ("White")) {
 
 			Vector3 pos = (_colPosition [0] + _colPosition [1]) / 2;
-			Debug.Log ("Create Pink");
+			//Debug.Log ("Create Pink");
 			_colArray.Clear();
 			Instantiate (ColorBall[4], pos, Quaternion.identity);
 			_colPosition.Clear ();
@@ -46,7 +46,7 @@ public class ListCollisionCollor : MonoBehaviour {
 		} else if (_colArray.Contains ("Blue") && _colArray.Contains ("White")) {
 
 			Vector3 pos = (_colPosition [0] + _colPosition [1]) / 2;
-			Debug.Log ("Create SkyBlue");
+			//Debug.Log ("Create SkyBlue");
 			_colArray.Clear();
 			Instantiate (ColorBall[2], pos, Quaternion.identity);
 			_colPosition.Clear ();

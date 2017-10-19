@@ -6,7 +6,8 @@ public class MOT_random : MonoBehaviour {
 
 
 	public GameObject wall;
-	public GameObject maincamera;
+	[SerializeField]
+	private Vector3 maincamera;
 
 	// Use this for initialization
 	void Start () {

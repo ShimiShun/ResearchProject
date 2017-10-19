@@ -44,7 +44,7 @@ public class MovingObject : MonoBehaviour {
 
 				//Destroy (this.gameObject);
 
-				Debug.Log (collision.gameObject.tag);
+				//Debug.Log (collision.gameObject.tag);
 			}
 
 

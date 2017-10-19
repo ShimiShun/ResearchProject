@@ -50,6 +50,8 @@
      <Compile Include="Assets\3D-MOT\script\ListCollisionCollor.cs" />
      <Compile Include="Assets\3D-MOT\script\MOT_random.cs" />
      <Compile Include="Assets\3D-MOT\script\MovingObject.cs" />
+     <Compile Include="Assets\3D-MOT\script\PositionTracking.cs" />
+     <Compile Include="Assets\3D-MOT\script\TouchEventScript.cs" />
      <Compile Include="Assets\LeapMotion\DemoResources\Scripts\AerodynamicLeaf.cs" />
      <Compile Include="Assets\LeapMotion\DemoResources\Scripts\ChangeMaterialOnGrab.cs" />
      <Compile Include="Assets\LeapMotion\DemoResources\Scripts\CubeWave.cs" />
