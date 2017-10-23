@@ -11,9 +11,6 @@ public class MovingObject : MonoBehaviour {
 	private int _maxRotateRange = 180;
 
 	private GameObject _parentBall;
-
-	int a=0;
-
 	ListCollisionCollor colliderParent;
 
 	// Use this for initialization

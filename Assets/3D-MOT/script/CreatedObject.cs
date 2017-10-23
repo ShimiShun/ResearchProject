@@ -15,10 +15,12 @@ public class CreatedObject : MonoBehaviour
 	[SerializeField]
 	private float _maxCount = 5;
 
+	TouchEventScript TouchFlag;
+
 	// Use this for initialization
 	void Start ()
 	{
-		
+		TouchFlag = GameObject.Find ("FirstMoveBall").GetComponent<TouchEventScript> ();
 	}
 	
 	// Update is called once per frame
@@ -31,8 +33,17 @@ public class CreatedObject : MonoBehaviour
 		_timeCount += Time.deltaTime;//出現してからの時間を計測
 
 
-		if (_timeCount >= _maxCount) {
+
+		if (TouchFlag.DelFlag == true) {
+			TouchFlag.DelFlag = false;
+			TouchFlag.PointCount = TouchFlag.PointCount + 2;
 			Destroy (this.gameObject);
+
+		}
+		else if (_timeCount >= _maxCount) {
+			TouchFlag.PointCount--;
+			Destroy (this.gameObject);
+
 		}
 
 	}
