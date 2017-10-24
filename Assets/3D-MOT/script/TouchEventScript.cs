@@ -93,7 +93,12 @@ public class TouchEventScript : MonoBehaviour {
 				}
 			//}
 		}
-		Debug.Log (PointCount);
+		//Debug.Log (PointCount);
+
+		if (PointCount < -10f) {
+			PointCount = 0;
+		}
+
 		PointText.text = "Score: " + PointCount.ToString ();
 
 	}
