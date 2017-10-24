@@ -5,7 +5,8 @@ using Leap;
 using UnityEngine.UI;
 
 
-public class TouchEventScript : MonoBehaviour {
+public class TouchEventScript : MonoBehaviour
+{
 
 	private Controller controller = new Controller ();
 	ListCollisionCollor DelBall;
@@ -13,9 +14,11 @@ public class TouchEventScript : MonoBehaviour {
 	[SerializeField]
 	private Text PointText;
 	public float PointCount = 0;
+	private int a = 0;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 		DelBall = GameObject.Find ("FirstMoveBall").GetComponent<ListCollisionCollor> ();
 		//PointText.transform.position = Vector2 (Screen.width - 50, Screen.height - 50);
@@ -23,11 +26,13 @@ public class TouchEventScript : MonoBehaviour {
 //		controller.EnableGesture(Gesture.GestureType.TYPECIRCLE);
 //		controller.EnableGesture(Gesture.GestureType.TYPEKEYTAP);
 //		controller.EnableGesture(Gesture.GestureType.TYPESCREENTAP);
-		controller.EnableGesture(Gesture.GestureType.TYPESWIPE);
+		controller.EnableGesture (Gesture.GestureType.TYPESWIPE);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+
 
 		Frame frame = controller.Frame ();
 		GestureList leap_gestures = frame.Gestures ();
@@ -62,18 +67,18 @@ public class TouchEventScript : MonoBehaviour {
 
 		//for (int i = 0; i < leap_gestures.Count; i++) {
 
-			var a = 0;		
-			Gesture gesture = leap_gestures [0];
+			
+		Gesture gesture = leap_gestures [0];
 
-			// ジェスチャーがスワイプだった場合
-			if (gesture.Type == Gesture.GestureType.TYPESWIPE) {
-				SwipeGesture Swipe = new SwipeGesture (gesture);
-				// スワイプ方向
-				Vector SwipeDirection = Swipe.Direction;
-				// 0より小さかった場合
-				if (SwipeDirection.y < 0) {
-					// Downのログを表示
-					//Debug.Log ("Down");
+		// ジェスチャーがスワイプだった場合
+		if (gesture.Type == Gesture.GestureType.TYPESWIPE) {
+			SwipeGesture Swipe = new SwipeGesture (gesture);
+			// スワイプ方向
+			Vector SwipeDirection = Swipe.Direction;
+			// 0より小さかった場合
+			if (SwipeDirection.y < 0 && a == 0) {
+				// Downのログを表示
+				Debug.Log ("Down");
 
 				if (DelBall.CreatedBall.Count == 0) {
 					PointCount = PointCount - 1;
@@ -83,14 +88,15 @@ public class TouchEventScript : MonoBehaviour {
 					DelFlag = true;
 				}
 					
+				a++;
 
-					// 0より大きかった場合
-				} else if (SwipeDirection.y > 0) {
-					// Upのログを表示
-					//Debug.Log ("Up");
+				// 0より大きかった場合
+			} else if (SwipeDirection.y > 0) {
+				// Upのログを表示
+				//Debug.Log ("Up");
 
-
-				}
+				a = 0;
+			}
 			//}
 		}
 		//Debug.Log (PointCount);
