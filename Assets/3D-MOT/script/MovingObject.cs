@@ -42,7 +42,7 @@ public class MovingObject : MonoBehaviour
 		if (collision.gameObject.tag != "Wall") {
 			
 			var random = Random.value;
-			Debug.Log (random);
+			//Debug.Log (random);
 			if (random < _collValue) {
 				colliderParent._colArray.Add (collision.gameObject.tag);
 				colliderParent._colPosition.Add (this.transform.position);
