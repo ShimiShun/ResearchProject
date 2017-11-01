@@ -14,15 +14,25 @@ public class CreatedObject : MonoBehaviour
 	private float _timeCount = 0;
 	[SerializeField]
 	private float _maxCount = 2;
+	[SerializeField]
+	private AudioClip[] _tapSound;
+	public AudioClip clip;
+	private AudioSource _audio;
 
 	TouchEventScript TouchFlag;
+	AudioSoundPlay sound;
 	private float point;
 
 	// Use this for initialization
 	void Start ()
 	{
 		TouchFlag = GameObject.Find ("FirstMoveBall").GetComponent<TouchEventScript> ();
+		sound = GameObject.Find ("AudioPlay").GetComponent<AudioSoundPlay> ();
 		point = TouchFlag.PointCount;
+
+		_audio = gameObject.GetComponent<AudioSource> ();
+		clip=_tapSound[Random.Range(0,_tapSound.Length)];
+
 	}
 	
 	// Update is called once per frame
@@ -40,6 +50,7 @@ public class CreatedObject : MonoBehaviour
 			TouchFlag.DelFlag = false;
 			point = point + 2;
 			TouchFlag.PointCount = point;
+			sound._soundPlay.PlayOneShot (clip);//消えたときの効果音再生
 			Destroy (this.gameObject);
 
 		}

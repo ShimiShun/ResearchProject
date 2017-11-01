@@ -14,6 +14,7 @@ public class TouchEventScript : MonoBehaviour
 	private Text PointText;
 	public float PointCount = 0;
 	private int a = 0;
+	private int MissTouchCount = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -64,6 +65,7 @@ public class TouchEventScript : MonoBehaviour
 
 			if (DelBall.CreatedBall.Count == 0) {
 				PointCount = PointCount - 1;
+				MissTouchCount++;
 			} 
 
 			else {
@@ -84,9 +86,10 @@ public class TouchEventScript : MonoBehaviour
 			}
 		}
 
-		if (PointCount < -10f) {
-			PointCount = 0;
-		}
+		//use of open Lab
+//		if (PointCount < -10f) {
+//			PointCount = 0;
+//		}
 
 		PointText.text = "Score: " + PointCount.ToString ();
 

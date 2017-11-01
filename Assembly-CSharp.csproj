@@ -46,14 +46,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\3D-MOT\script\CreatedObject.cs" />
-     <Compile Include="Assets\3D-MOT\script\ListCollisionCollor.cs" />
-     <Compile Include="Assets\3D-MOT\script\MOT_random.cs" />
-     <Compile Include="Assets\3D-MOT\script\MovingObject.cs" />
-     <Compile Include="Assets\3D-MOT\script\PositionTracking.cs" />
-     <Compile Include="Assets\3D-MOT\script\TouchEventScript.cs" />
+     <Compile Include="Assets\3D-MOT\Script\AudioSoundPlay.cs" />
+     <Compile Include="Assets\3D-MOT\Script\CreatedObject.cs" />
+     <Compile Include="Assets\3D-MOT\Script\ListCollisionCollor.cs" />
+     <Compile Include="Assets\3D-MOT\Script\MOT_random.cs" />
+     <Compile Include="Assets\3D-MOT\Script\MovingObject.cs" />
+     <Compile Include="Assets\3D-MOT\Script\PositionTracking.cs" />
+     <Compile Include="Assets\3D-MOT\Script\TouchEventScript.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\retroattacksoundlite\readme.txt" />
+     <None Include="Assets\explosionsoundslite\readme.txt" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Plugins\SystemWipeRecognizerDll.bundle\Contents\MacOS\version.txt" />
  <Reference Include="UnityEngine.UI">
