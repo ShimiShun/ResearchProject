@@ -6,10 +6,10 @@ public class CreatedObject : MonoBehaviour
 {
 
 
-	[SerializeField]
-	private float _timeSpeed = 2;
-	[SerializeField]
-	private float _scaleUpdate = 30;
+//	[SerializeField]
+//	private float _timeSpeed = 2;
+//	[SerializeField]
+//	private float _scaleUpdate = 30;
 	[SerializeField]
 	private float _timeCount = 0;
 	[SerializeField]
@@ -22,6 +22,25 @@ public class CreatedObject : MonoBehaviour
 	TouchEventScript TouchFlag;
 	AudioSoundPlay sound;
 	private float point;
+
+	[SerializeField]
+	private float amplitude = 0.01f; // 振幅
+	private int frameCnt = 0; // フレームカウント
+
+	//Created Ballを強調するためだけのやつ
+	void FixedUpdate () {
+		frameCnt += 1;
+		if( 10000 <= frameCnt ){
+			frameCnt = 0;
+		}
+		if( 0 == frameCnt%2 ){
+			// 上下に振動させる（ふわふわを表現）
+			float posYSin = Mathf.Sin(2.0f*Mathf.PI*(float)(frameCnt%200)/(200.0f-1.0f));
+			float posXSin = Mathf.Cos(2.0f*Mathf.PI*(float)(frameCnt%200)/(200.0f-1.0f));
+			iTween.MoveAdd(gameObject,new Vector3(amplitude * posXSin, amplitude * posYSin, 0),0.0f);
+		}
+	}
+
 
 	// Use this for initialization
 	void Start ()
@@ -39,8 +58,8 @@ public class CreatedObject : MonoBehaviour
 	void Update ()
 	{
 
-		this.transform.localScale = new Vector3 (Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate)
-			, Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate), Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate));
+//		this.transform.localScale = new Vector3 (Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate)
+//			, Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate), Mathf.PingPong (Time.time * _timeSpeed, _scaleUpdate));
 
 		_timeCount += Time.deltaTime;//出現してからの時間を計測
 

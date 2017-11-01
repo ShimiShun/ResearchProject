@@ -57,6 +57,7 @@
      <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
      <None Include="Assets\retroattacksoundlite\readme.txt" />
      <None Include="Assets\explosionsoundslite\readme.txt" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Plugins\SystemWipeRecognizerDll.bundle\Contents\MacOS\version.txt" />
  <Reference Include="UnityEngine.UI">
@@ -83,6 +84,10 @@
  <Reference Include="LeapCSharp.NET3.5">
  <HintPath>/Users/ShunkiShimizu/Desktop/ResearchProject/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{8617EBD8-239E-8950-6115-43E25B9229AA}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
