@@ -16,7 +16,7 @@ public class CreatedObject : MonoBehaviour
 	private float _maxCount = 2;
 	[SerializeField]
 	private AudioClip[] _tapSound;
-	public AudioClip clip;
+	private AudioClip clip;
 	private AudioSource _audio;
 
 	TouchEventScript TouchFlag;

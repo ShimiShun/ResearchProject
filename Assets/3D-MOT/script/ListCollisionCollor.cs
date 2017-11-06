@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ListCollisionCollor : MonoBehaviour {
 
-	public List<string> _colArray;
-	public List<Vector3> _colPosition=null; 
+	public List<string> _colArray;//衝突した２つの球のタグを管理
+	public List<Vector3> _colPosition=null; //衝突した２つの球の位置情報を管理
 	private string _mixCol;
+
 	[SerializeField]
-	private List<GameObject> ColorBall;
-	public List<GameObject> CreatedBall;
+	private List<GameObject> ColorBall;//生成される色の球を格納
+	public List<GameObject> CreatedBall;//不要いずれ消せ
 
 	// Use this for initialization
 	void Start () {
