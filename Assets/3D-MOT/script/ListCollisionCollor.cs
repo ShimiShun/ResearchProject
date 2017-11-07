@@ -10,7 +10,7 @@ public class ListCollisionCollor : MonoBehaviour {
 
 	[SerializeField]
 	private List<GameObject> ColorBall;//生成される色の球を格納
-	public List<GameObject> CreatedBall;//不要いずれ消せ
+	public List<GameObject> CreatedBall;
 
 	// Use this for initialization
 	void Start () {

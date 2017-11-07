@@ -11,7 +11,7 @@ public class MovingObject : MonoBehaviour
 	[SerializeField]
 	private int _maxRotateRange = 360;
 	[SerializeField]
-	private float _collValue = 0.5f;
+	private float _collValue = 0.3f;
 
 	private GameObject _parentBall;
 	ListCollisionCollor colliderParent;

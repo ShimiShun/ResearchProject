@@ -62,7 +62,7 @@ public class NumberTouch : MonoBehaviour {
 				}
 			}
 
-			if (TouchCount == 5) {//21
+			if (TouchCount == 21) {//21
 				Debug.Log ("Completed");
 				flag = false;
 				StartFalg = false;
