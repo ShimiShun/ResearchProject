@@ -31,6 +31,7 @@ public class NumberTouch : MonoBehaviour {
 	void Start () {
 		
 		ResetButton.SetActive (false);
+	
 	}
 	
 	// Update is called once per frame
@@ -40,7 +41,7 @@ public class NumberTouch : MonoBehaviour {
 
 			if (flag == true) {
 				TimerCount += Time.deltaTime;
-				TimerText.GetComponent<TextMesh> ().text = TimerCount.ToString ("F2");
+				TimerText.GetComponent<TextMesh> ().text = TimerCount.ToString ("F3");
 			}
 
 
@@ -63,7 +64,7 @@ public class NumberTouch : MonoBehaviour {
 			}
 
 			if (TouchCount == 21) {//21
-				Debug.Log ("Completed");
+				//Debug.Log ("Completed");
 				flag = false;
 				StartFalg = false;
 				ResetButton.SetActive (true);

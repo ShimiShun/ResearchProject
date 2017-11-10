@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/3D-MOT/Scene/StartScene.unity
+- path: Assets/3D-MOT/Scene/3D_MOT.unity
   isLoaded: 1
   isActive: 1

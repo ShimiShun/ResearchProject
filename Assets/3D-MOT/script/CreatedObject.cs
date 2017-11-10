@@ -74,7 +74,7 @@ public class CreatedObject : MonoBehaviour
 			Destroy (this.gameObject);
 
 		} else if (_timeCount >= _maxCount) {
-			Debug.Log (true);
+			
 			if ((TouchFlag._lvl1 == true && this.gameObject.tag == "Purple")
 			    || (TouchFlag._lvl2 == true && (this.gameObject.tag == "Skyblue" || this.gameObject.tag == "Pink"))
 			    || (TouchFlag._lvl3 == true)) {

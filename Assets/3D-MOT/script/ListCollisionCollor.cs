@@ -20,7 +20,7 @@ public class ListCollisionCollor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 
 		if (_colArray.Contains ("Blue") && _colArray.Contains ("Red")) {
 			

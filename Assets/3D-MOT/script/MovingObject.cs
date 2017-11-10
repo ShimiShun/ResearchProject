@@ -10,14 +10,14 @@ public class MovingObject : MonoBehaviour
 	public float INIT_SPEED = 20f;
 	[SerializeField]
 	private int _maxRotateRange = 360;
-	[SerializeField]
 	private float _collValue = 0.3f;
-
 	private GameObject _parentBall;
 	ListCollisionCollor colliderParent;
 
 	private float _timeCount = 0;
 	private int rot = 1;
+
+
 
 	// Use this for initialization
 	void Start ()
@@ -36,6 +36,10 @@ public class MovingObject : MonoBehaviour
 			
 			GetComponent<Rigidbody> ().velocity = transform.forward*INIT_SPEED*rot;
 		}
+
+
+		if (_timeCount >= 60)
+			this.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
 
 	}

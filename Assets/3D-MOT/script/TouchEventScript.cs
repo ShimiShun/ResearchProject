@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class TouchEventScript : MonoBehaviour
@@ -17,12 +18,17 @@ public class TouchEventScript : MonoBehaviour
 	private int MissTouchCount = 0;
 
 	private float Timer = 0;
+	private float Timer2 = 0;
+
 	[SerializeField]
 	private float MaxTime = 10;
 
 	public bool _lvl1 = false;
 	public bool _lvl2 = false;
 	public bool _lvl3 = false;
+
+	[SerializeField]
+	private Text FinishText;
 
 	// Use this for initialization
 	void Start ()
@@ -36,6 +42,8 @@ public class TouchEventScript : MonoBehaviour
 	void Update ()
 	{
 		Timer += Time.deltaTime;
+		Timer2 += Time.deltaTime;
+
 		if (Timer >= MaxTime) {
 			Timer-=MaxTime;
 		}
@@ -108,6 +116,12 @@ public class TouchEventScript : MonoBehaviour
 
 
 		PointText.text = "Score: " + PointCount.ToString ();
+
+		if (Timer2 >= 60)
+			FinishText.text = "おわり！!";
+		else if (Timer2 >= 5)
+			SceneManager.LoadScene ("StartScene"); 
+
 
 	}
 		
