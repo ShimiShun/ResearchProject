@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 
 public class TouchEventScript : MonoBehaviour
@@ -14,7 +15,7 @@ public class TouchEventScript : MonoBehaviour
 	[SerializeField]
 	private Text PointText;
 	public float PointCount = 0;
-	private int a = 0;
+	//private int a = 0;
 	private int MissTouchCount = 0;
 
 	private float Timer = 0;
@@ -30,10 +31,20 @@ public class TouchEventScript : MonoBehaviour
 	[SerializeField]
 	private Text FinishText;
 
+	private string StudentNumber;
+	private bool Male;
+	private bool Female;
+	private string data;
+
 	// Use this for initialization
 	void Start ()
 	{
 		DelBall = GameObject.Find ("FirstMoveBall").GetComponent<ListCollisionCollor> ();
+
+		StudentNumber = StartScript.Numbers;
+		Male = StartScript._male;
+		Female = StartScript._female;
+
 		//PointText.transform.position = Vector2 (Screen.width - 50, Screen.height - 50);
 
 	}
@@ -83,6 +94,7 @@ public class TouchEventScript : MonoBehaviour
 						} else if (selectedObjTag == "Skyblue" || selectedObjTag == "Pink") {
 							Destroy (hit.collider.gameObject);
 							PointCount--;
+							MissTouchCount++;
 						}
 					}
 
@@ -96,6 +108,7 @@ public class TouchEventScript : MonoBehaviour
 						} else if (selectedObjTag == "Purple") {
 							Destroy (hit.collider.gameObject);
 							PointCount--;
+							MissTouchCount++;
 						}
 					}
 
@@ -117,12 +130,35 @@ public class TouchEventScript : MonoBehaviour
 
 		PointText.text = "Score: " + PointCount.ToString ();
 
-		if (Timer2 >= 60)
+		if (Timer2 >= 60) {
 			FinishText.text = "おわり！!";
-		else if (Timer2 >= 5)
-			SceneManager.LoadScene ("StartScene"); 
+		}
+		
+		if (Timer2 >= 65) {
+			if (Male == true) {
+				data = "Male, " + "score: " + PointCount.ToString () + "," + " Error: " + MissTouchCount.ToString ();
+			} 
+			if (Female == true) {
+				data = "Female, " + "score: " + PointCount.ToString () + "," + " Error: " + MissTouchCount.ToString ();
+			} 
 
+			textSave (data);
+
+
+			SceneManager.LoadScene ("StartScene"); 
+		}
+		
 
 	}
+
+
+	public void textSave(string txt){
+		var FileName="../"+StudentNumber+".txt";
+		StreamWriter sw = new StreamWriter(FileName,true); //true=追記 false=上書き
+		sw.WriteLine(txt);
+		sw.Flush();
+		sw.Close();
+	}
+
 		
 }

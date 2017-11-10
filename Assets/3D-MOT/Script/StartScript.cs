@@ -24,16 +24,43 @@ public class StartScript : MonoBehaviour {
 	private int LoadSceneNum;
 	private string LoadSceneName;
 
+	[SerializeField]
+	private string Num;
+	[SerializeField]
+	private bool male;
+	[SerializeField]
+	private bool female;
+
+	public static string Numbers = "";
+	public static string getHitPoint() {
+		return Numbers;
+	}
+	public static bool _male;
+	public static bool getMale() {
+		return _male;
+	}
+	public static bool _female;
+	public static bool getFemale() {
+		return _female;
+	}
+
 
 	// Use this for initialization
 	void Start () {
 		CountText.text = "連続タッチ！！";
 		//CountText.text = CountDouwn.ToString ();
 		StartButton.SetActive(false);
+		Numbers = Num;
+		_male = male;
+		_female = female;
+
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 
 		switch (LoadSceneNum) {
 		case 1:
@@ -70,6 +97,10 @@ public class StartScript : MonoBehaviour {
 
 		//Debug.Log (LoadSceneNum);
 	}
+
+
+
+
 
 	public void LoadScene(){
 		//SceneManager.LoadScene ("3D_MOT");
