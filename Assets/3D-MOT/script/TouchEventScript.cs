@@ -16,7 +16,7 @@ public class TouchEventScript : MonoBehaviour
 	private Text PointText;
 	public float PointCount = 0;
 	//private int a = 0;
-	private int MissTouchCount = 0;
+	public int MissTouchCount = 0;
 
 	private float Timer = 0;
 	private float Timer2 = 0;
@@ -31,10 +31,14 @@ public class TouchEventScript : MonoBehaviour
 	[SerializeField]
 	private Text FinishText;
 
-	private string StudentNumber;
-	private bool Male;
-	private bool Female;
+	public static string StudentNumber;
+	public static string Gender;
 	private string data;
+
+	private int PurpleNum;
+	private int PinkNum;
+	private int SkyblueNum;
+	private int SuccessCount;
 
 	// Use this for initialization
 	void Start ()
@@ -42,8 +46,7 @@ public class TouchEventScript : MonoBehaviour
 		DelBall = GameObject.Find ("FirstMoveBall").GetComponent<ListCollisionCollor> ();
 
 		StudentNumber = StartScript.Numbers;
-		Male = StartScript._male;
-		Female = StartScript._female;
+		Gender = StartScript.Gender;
 
 		//PointText.transform.position = Vector2 (Screen.width - 50, Screen.height - 50);
 
@@ -89,6 +92,7 @@ public class TouchEventScript : MonoBehaviour
 						if (selectedObjTag == "Purple") {
 							//Destroy (hit.collider.gameObject);
 							PointCount += 2;
+							SuccessCount++;
 							DelFlag = true;
 							
 						} else if (selectedObjTag == "Skyblue" || selectedObjTag == "Pink") {
@@ -103,6 +107,7 @@ public class TouchEventScript : MonoBehaviour
 						if (selectedObjTag == "Skyblue"||selectedObjTag=="Pink") {
 							//Destroy (hit.collider.gameObject);
 							PointCount += 2;
+							SuccessCount++;
 							DelFlag = true;
 
 						} else if (selectedObjTag == "Purple") {
@@ -116,6 +121,7 @@ public class TouchEventScript : MonoBehaviour
 						if (selectedObjTag == "Purple"||selectedObjTag == "Skyblue" || selectedObjTag == "Pink") {
 							//Destroy (hit.collider.gameObject);
 							PointCount += 2;
+							SuccessCount++;
 							DelFlag = true;
 
 						} 
@@ -135,18 +141,30 @@ public class TouchEventScript : MonoBehaviour
 		}
 		
 		if (Timer2 >= 65) {
-			if (Male == true) {
-				data = "Male, " + "score: " + PointCount.ToString () + "," + " Error: " + MissTouchCount.ToString ();
-			} 
-			if (Female == true) {
-				data = "Female, " + "score: " + PointCount.ToString () + "," + " Error: " + MissTouchCount.ToString ();
-			} 
+//			
+			if (_lvl1 == true) {
+				PurpleNum = ListCollisionCollor.CountPurple;
+				data = Gender + ", " + "score: " + PointCount.ToString () + ", " + "1色出現数数: "+PurpleNum.ToString() + ", " 
+					+ "成功数: " + SuccessCount.ToString() + ", " + "お手つき: " + MissTouchCount.ToString () + ", " + "ノータッチミス" + CreatedObject.NoTouchCount.ToString(); 
+			}
+
+			if (_lvl2) {
+				var total = ListCollisionCollor.CountSkyblue + PurpleNum + ListCollisionCollor.CountPink;
+				data = Gender + ", " + "score: " + PointCount.ToString () + ", " + "2色出現数: " + total.ToString() + ", " 
+					+ "成功数: " + SuccessCount.ToString() + ", " + "お手つき: " + MissTouchCount.ToString () + ", " + "ノータッチミス" + CreatedObject.NoTouchCount.ToString();
+			}
+
+			if (_lvl3) {
+				var total = ListCollisionCollor.CountSkyblue + PurpleNum + ListCollisionCollor.CountPink + ListCollisionCollor.CountPurple;
+				data = Gender + ", " + "score: " + PointCount.ToString () + ", " + "3色出現数: " + total.ToString() + ", " 
+					+ "成功数: " + SuccessCount.ToString() + ", " + "お手つき: " + MissTouchCount.ToString () + ", " + "ノータッチミス" + CreatedObject.NoTouchCount.ToString();
+			}
+
 
 			textSave (data);
-
-
 			SceneManager.LoadScene ("StartScene"); 
 		}
+
 		
 
 	}

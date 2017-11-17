@@ -21,7 +21,9 @@ public class CreatedObject : MonoBehaviour
 
 	TouchEventScript TouchFlag;
 	AudioSoundPlay sound;
+
 	private float point;
+	public static int NoTouchCount;
 
 	[SerializeField]
 	private float amplitude = 0.01f;
@@ -81,7 +83,7 @@ public class CreatedObject : MonoBehaviour
 				point = TouchFlag.PointCount;
 				point--;
 				TouchFlag.PointCount = point;
-
+				NoTouchCount++;
 			}
 		
 			Destroy (this.gameObject);

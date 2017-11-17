@@ -12,6 +12,10 @@ public class ListCollisionCollor : MonoBehaviour {
 	private List<GameObject> ColorBall;//生成される色の球を格納
 	public List<GameObject> CreatedBall;
 
+	public static int CountPurple;
+	public static int CountSkyblue;
+	public static int CountPink;
+
 	// Use this for initialization
 	void Start () {
 		//_ballCount = this.transform.childCount;
@@ -30,6 +34,7 @@ public class ListCollisionCollor : MonoBehaviour {
 			var a = Instantiate (ColorBall[0], pos, Quaternion.identity);
 			_colPosition.Clear ();
 			CreatedBall.Add (a);
+			CountPurple++;
 
 		} else if (_colArray.Contains ("Red") && _colArray.Contains ("White")) {
 
@@ -39,6 +44,7 @@ public class ListCollisionCollor : MonoBehaviour {
 			var b = Instantiate (ColorBall[4], pos, Quaternion.identity);
 			_colPosition.Clear ();
 			CreatedBall.Add (b);
+			CountPink++;
 
 		} else if (_colArray.Contains ("Blue") && _colArray.Contains ("White")) {
 
@@ -48,6 +54,7 @@ public class ListCollisionCollor : MonoBehaviour {
 			var c = Instantiate (ColorBall[2], pos, Quaternion.identity);
 			_colPosition.Clear ();
 			CreatedBall.Add (c);
+			CountSkyblue++;
 		}
 
 
