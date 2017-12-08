@@ -73,6 +73,9 @@ public class TouchEventScript : MonoBehaviour
 
 			else {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+				Debug.DrawRay (ray.origin, ray.direction * 100, Color.red, 3, false);
+
 				RaycastHit hit = new RaycastHit ();
 
 				if (Physics.Raycast (ray, out hit)) {

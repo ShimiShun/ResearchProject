@@ -51,7 +51,7 @@ public class NumberTouch : MonoBehaviour {
 
 				if (Physics.Raycast (ray, out hit)) {
 					var selectedObj = hit.collider.gameObject; 
-					var NumText = int.Parse (selectedObj.transform.FindChild ("Number").GetComponent<TextMesh> ().text);
+					var NumText = int.Parse (selectedObj.transform.Find ("Number").GetComponent<TextMesh> ().text);
 
 					if (NumText == TouchCount) {
 						selectedObj.GetComponent<MeshRenderer> ().material.color = Color.red;
@@ -98,7 +98,7 @@ public class NumberTouch : MonoBehaviour {
 		NumArray = array.OrderBy(i => Guid.NewGuid()).ToArray();
 
 		for (int i = 0; i < NumArray.Length; i++) {
-			NumsBalls [i].transform.FindChild ("Number").GetComponent<TextMesh> ().text = NumArray [i].ToString ();
+			NumsBalls [i].transform.Find ("Number").GetComponent<TextMesh> ().text = NumArray [i].ToString ();
 		}
 	}
 }

@@ -57,6 +57,15 @@ public class CreatedObject : MonoBehaviour
 		_audio = gameObject.GetComponent<AudioSource> ();
 		clip = _tapSound [Random.Range (0, _tapSound.Length)];
 
+		if (TouchFlag._lvl1 == true && this.gameObject.tag == "Purple") {
+			var pos = this.transform.position;
+			pos.z-=1.5f;
+			this.transform.position = pos;
+			
+		}
+			
+
+
 	}
 	
 	// Update is called once per frame
@@ -90,5 +99,6 @@ public class CreatedObject : MonoBehaviour
 		}
 
 	}
+		
 		
 }

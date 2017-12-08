@@ -28,13 +28,14 @@ public class MovingObject : MonoBehaviour
 
 	}
 
-	void Update(){
+	void Update ()
+	{
 
 		_timeCount += Time.deltaTime;
 		//Debug.Log(_timeCount);
 		if (_timeCount % 10 <= 0.1) {
 			
-			GetComponent<Rigidbody> ().velocity = transform.forward*INIT_SPEED*rot;
+			GetComponent<Rigidbody> ().velocity = transform.forward * INIT_SPEED * rot;
 		}
 
 
@@ -62,10 +63,11 @@ public class MovingObject : MonoBehaviour
 			
 			var random = Random.value;
 			//Debug.Log (random);
-			if (random < _collValue) {
-				colliderParent._colArray.Add (collision.gameObject.tag);
-				colliderParent._colPosition.Add (this.transform.position);
-			}
+			colliderParent._colValue.Add(random);
+			colliderParent._colArray.Add (collision.gameObject.tag);
+			colliderParent._colPosition.Add (this.transform.position);
+
+
 		}
 
 		if (collision.gameObject.name == "wallLeft") {
