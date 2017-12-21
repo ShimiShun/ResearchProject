@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/3D-MOT/Scene/LeftSide/3DMOT_Lvl1.unity
+- path: Assets/3D-MOT/Scene/LeftSide/3DMOT_Lvl2.unity
   isLoaded: 1
   isActive: 1

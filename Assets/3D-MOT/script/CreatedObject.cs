@@ -57,9 +57,11 @@ public class CreatedObject : MonoBehaviour
 		_audio = gameObject.GetComponent<AudioSource> ();
 		clip = _tapSound [Random.Range (0, _tapSound.Length)];
 
-		if (TouchFlag._lvl1 == true && this.gameObject.tag == "Purple") {
+		if ((TouchFlag._lvl1 == true && this.gameObject.tag == "Purple")
+			|| (TouchFlag._lvl2 == true && (this.gameObject.tag == "Skyblue" || this.gameObject.tag == "Pink"))
+			|| (TouchFlag._lvl3 == true)) {
 			var pos = this.transform.position;
-			pos.z-=1.5f;
+			pos.z-=8f;
 			this.transform.position = pos;
 			
 		}
