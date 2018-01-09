@@ -54,6 +54,7 @@
      <Compile Include="Assets\3D-MOT\Script\MovingObject.cs" />
      <Compile Include="Assets\3D-MOT\Script\NumberTouch.cs" />
      <Compile Include="Assets\3D-MOT\Script\PositionTracking.cs" />
+     <Compile Include="Assets\3D-MOT\Script\SimpleRandomCalculator.cs" />
      <Compile Include="Assets\3D-MOT\Script\StartScript.cs" />
      <Compile Include="Assets\3D-MOT\Script\TouchEventScript.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
