@@ -39,7 +39,7 @@ public class MovingObject : MonoBehaviour
 		}
 
 
-		if (_timeCount >= 60)
+		if (_timeCount >= 180)
 			this.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
 

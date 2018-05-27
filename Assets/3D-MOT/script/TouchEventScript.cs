@@ -139,11 +139,11 @@ public class TouchEventScript : MonoBehaviour
 
 		PointText.text = "Score: " + PointCount.ToString ();
 
-		if (Timer2 >= 60) {
+		if (Timer2 >= 180) {
 			FinishText.text = "おわり！!";
 		}
 		
-		if (Timer2 >= 65) {
+		if (Timer2 >= 185) {
 //			
 			if (_lvl1 == true) {
 				PurpleNum = ListCollisionCollor.CountPurple;

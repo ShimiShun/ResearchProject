@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/3D-MOT/Scene/SimpleCalcQ.unity
+- path: Assets/3D-MOT/Scene/EyeHand.unity
   isLoaded: 1
   isActive: 1
